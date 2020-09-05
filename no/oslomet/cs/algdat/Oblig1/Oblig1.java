@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 
 public class Oblig1 {
     private Oblig1() {}
@@ -30,15 +31,35 @@ public class Oblig1 {
     public static void delsortering(int[] a) {
         throw new UnsupportedOperationException();
     }
-
-    ///// Oppgave 5 //////////////////////////////////////
+    //Oppgave 5
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        int n = a.length;
+        if(n < 2) return;   //er tom eller er det et element i tabellen
+            char temp = a[n- 1];
+            for (int i = n - 1; i > 0; i--) {
+                a[i] = a[i - 1];
+            }
+            a[0] = temp;
+
+
     }
 
-    ///// Oppgave 6 //////////////////////////////////////
+    //Oppgave 6
     public static void rotasjon(char[] a, int k) {
-        throw new UnsupportedOperationException();
+        int n = a.length;
+        if(n < 2) {
+            return;
+        }
+        if((k % n) < 0) {
+            k += n;
+        }
+        char [] d = Arrays.copyOfRange(a, n - k, n);
+        for (int i = n - 1; i >= k;  i--) {
+            a[i] = a[i - k];
+        }
+        System.arraycopy(d,0, a, 0, k);
+
+
     }
 
     ///// Oppgave 7 //////////////////////////////////////
