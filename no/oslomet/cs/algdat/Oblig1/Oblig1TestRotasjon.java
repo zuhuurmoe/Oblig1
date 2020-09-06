@@ -18,6 +18,11 @@ class Oblig1TestRotasjon {
 
         assertEquals(Arrays.toString(d0), Arrays.toString(a));
 
+
+    }
+
+    @Test
+    void testRotasjon() {
         char [] b = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         Oblig1.rotasjon(b, 3);
 
