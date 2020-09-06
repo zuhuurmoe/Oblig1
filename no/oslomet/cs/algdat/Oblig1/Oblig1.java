@@ -12,7 +12,10 @@ public class Oblig1 {
     public static int maks(int[] a) {
         throw new UnsupportedOperationException();
     }
+    for (int i = 1; i < a.length; i++ ){
 
+
+    }
     public static int ombyttinger(int[] a) {
         throw new UnsupportedOperationException();
     }
