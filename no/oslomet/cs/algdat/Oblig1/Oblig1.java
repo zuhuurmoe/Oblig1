@@ -11,12 +11,23 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
+        if (a.length < 1)
+        throw new UnsupportedOperationException("Tabell mangler innhold");
 
-        throw new UnsupportedOperationException();
-       /* for(int i = 1; i < a.length; i++ ){
+        int max = 0;
+        for(int i = 1; i < a.length; i++ ){
+
+            if(a[i] > a[i+1]){
+                max = a[i];
+                a[i] = a[i +1];
+                a[i + 1] = max;
+
+            }
+
+            return a[a.length];
 
 
-        }*/
+        }
     }
 
     public static int ombyttinger(int[] a) {
