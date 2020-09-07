@@ -114,15 +114,61 @@ public class Oblig1 {
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new UnsupportedOperationException();
+        int n = a.length;
+        //Kaster NoSuchElementException hvis det er mindre enn 3 elementer i arrayet
+        if(n < 3){
+            throw new NoSuchElementException("a.lenght("+n+") < 3!");
+
+        }
+        //Sorterer de første verdiene i tabellen ved hjelp av oppagave 8
+        int [] sorter = {a[0], a[0], a[2]};
+        int [] sortert = indekssortering(sorter);
+
+        int min = sortert[0];
+        int nestmin = sortert[1];
+        int tredjemin = sortert[2];
+
+        int minVerdi = a[min];
+        int nestminVerdi = a[nestmin];
+        int tredjeminVerdi = a[tredjemin];
+
+        for (int i = 3; i < n; i++){
+            int verdi = a[i];
+            if(verdi < tredjeminVerdi){
+
+                if(verdi < nestminVerdi){
+
+                    if(verdi < minVerdi){
+                        tredjemin = nestmin;
+                        tredjeminVerdi = nestminVerdi;
+
+                        nestmin = min;
+                        nestminVerdi = minVerdi;
+
+                        min = i;
+                        minVerdi = verdi;
+                    }
+                    else {
+                        tredjemin = nestmin;
+                        tredjeminVerdi = nestminVerdi;
+
+                        nestmin = i;
+                        nestminVerdi = verdi;
+
+                    }
+                }
+                else {
+                    tredjemin = i;
+                    tredjeminVerdi = verdi;
+                }
+            }
+        }
+
+        return new int[] {min, nestmin, tredjemin};
+
     }
 
-    ///// Oppgave 10 ////////////////////////////////////// ?????
-    public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-
-    }
-
+    // Oppgave 10
     public static boolean inneholdt(String a, String b) {
         int[] a1 = new int[256];
         int[] b1 = new int[256];

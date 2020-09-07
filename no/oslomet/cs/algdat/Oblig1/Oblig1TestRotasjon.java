@@ -31,4 +31,13 @@ class Oblig1TestRotasjon {
         Oblig1.rotasjon(b, -2);
         assertEquals(Arrays.toString(new char[]{'J','A', 'B', 'C', 'D', 'E', 'F', 'G','H', 'I'}), Arrays.toString(b));
     }
+
+    @Test
+    void tredjeMin() {
+        int [] a = {4, 7, 8, 9};
+        int [] expected = {1,2,3};
+         assertEquals(Arrays.toString(expected), Arrays.toString( Oblig1.tredjeMin(a)));
+
+
+    }
 }
