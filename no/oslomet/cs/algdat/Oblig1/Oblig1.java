@@ -86,7 +86,8 @@ public class Oblig1 {
         if(n < 2) {
             return;
         }
-        if((k % n) < 0) {
+
+        if((k %= n) < 0) {
             k += n;
         }
         char [] d = Arrays.copyOfRange(a, n - k, n);
@@ -169,21 +170,24 @@ public class Oblig1 {
         }
         //Sorterer de første verdiene i tabellen ved hjelp av oppagave 8
         int [] sorter = {a[0], a[1], a[2]};
-        int [] indekssortering = indekssortering(sorter);
+        int [] indekssorter = indekssortering(sorter);
 
-        int min = indekssortering[0];
-        int nestmin = indekssortering[1];
-        int tredjemin = indekssortering[2];
+        int min = indekssorter[0];
+        int nestmin = indekssorter[1];
+        int tredjemin = indekssorter[2];
 
         int minVerdi = a[min];
         int nestminVerdi = a[nestmin];
         int tredjeminVerdi = a[tredjemin];
 
         for (int i = 3; i < n; i++){
-            int verdi = a[i];
-            if(verdi < tredjeminVerdi){
 
-                    if(verdi < minVerdi){
+            if(a[i] < tredjeminVerdi) {
+
+                if (a[i] < nestminVerdi) {
+
+                    if (a[i] < minVerdi) {
+
                         tredjemin = nestmin;
                         tredjeminVerdi = nestminVerdi;
 
@@ -191,18 +195,18 @@ public class Oblig1 {
                         nestminVerdi = minVerdi;
 
                         min = i;
-                        minVerdi = verdi;
-                    }
-                    else if(verdi < nestminVerdi){
+                        minVerdi = a[i];
+                    } else {
                         tredjemin = nestmin;
                         tredjeminVerdi = nestminVerdi;
 
                         nestmin = i;
-                        nestminVerdi = verdi;
-                    }
-                    else {
+                        nestminVerdi = a[i];
+                }
+            }
+                else {
                     tredjemin = i;
-                    tredjeminVerdi = verdi;
+                    tredjeminVerdi = a[i];
                 }
             }
         }
