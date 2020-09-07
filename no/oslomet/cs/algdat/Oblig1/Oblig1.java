@@ -10,7 +10,7 @@ public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
-    public static int maks(int[] a) {
+    public static int maks(int[] a) { //a er en heltallstabell
         if (a.length < 1)
         throw new UnsupportedOperationException("Tabell mangler innhold");
 
@@ -32,7 +32,7 @@ public class Oblig1 {
     public static int ombyttinger(int[] a) {
         int bytt = 0;
         if (a.length <1)
-        throw new UnsupportedOperationException("Tabellen mangler innhold.");
+            throw new UnsupportedOperationException("Tabellen mangler innhold.");
 
         for (int i = 0; i< a.length - 1; i++){
             if (a[i + 1] < a[i]){
@@ -46,11 +46,27 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
+        if (a.length < 2)
+        {
+            return a.length;
+        }
 
+        int antallUlike = 1;
 
+        for (int i = 1; i < a.length; i++){
+            if (a[i-1] > a[i]){
 
-        throw new UnsupportedOperationException();
-    }
+                throw new UnsupportedOperationException("Tallene er ikke sortert stigende!");
+            }
+            else{
+                if (a[i - 1] < a[i]){
+                    antallUlike++;
+                }
+            }
+            }
+        return antallUlike;
+        }
+
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
