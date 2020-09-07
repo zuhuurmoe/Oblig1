@@ -164,16 +164,16 @@ public class Oblig1 {
         int n = a.length;
         //Kaster NoSuchElementException hvis det er mindre enn 3 elementer i arrayet
         if(n < 3){
-            throw new NoSuchElementException("a.lenght("+n+") < 3!");
+            throw new NoSuchElementException("a.lenght("+ n +") < 3!");
 
         }
         //Sorterer de første verdiene i tabellen ved hjelp av oppagave 8
-        int [] sorter = {a[0], a[0], a[2]};
-        int [] sortert = indekssortering(sorter);
+        int [] sorter = {a[0], a[1], a[2]};
+        int [] indekssortering = indekssortering(sorter);
 
-        int min = sortert[0];
-        int nestmin = sortert[1];
-        int tredjemin = sortert[2];
+        int min = indekssortering[0];
+        int nestmin = indekssortering[1];
+        int tredjemin = indekssortering[2];
 
         int minVerdi = a[min];
         int nestminVerdi = a[nestmin];
@@ -182,8 +182,6 @@ public class Oblig1 {
         for (int i = 3; i < n; i++){
             int verdi = a[i];
             if(verdi < tredjeminVerdi){
-
-                if(verdi < nestminVerdi){
 
                     if(verdi < minVerdi){
                         tredjemin = nestmin;
@@ -195,16 +193,14 @@ public class Oblig1 {
                         min = i;
                         minVerdi = verdi;
                     }
-                    else {
+                    else if(verdi < nestminVerdi){
                         tredjemin = nestmin;
                         tredjeminVerdi = nestminVerdi;
 
                         nestmin = i;
                         nestminVerdi = verdi;
-
                     }
-                }
-                else {
+                    else {
                     tredjemin = i;
                     tredjeminVerdi = verdi;
                 }
