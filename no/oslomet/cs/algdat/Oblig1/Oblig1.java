@@ -12,10 +12,7 @@ public class Oblig1 {
     public static int maks(int[] a) {
         throw new UnsupportedOperationException();
     }
-    for (int i = 1; i < a.length; i++ ){
 
-
-    }
     public static int ombyttinger(int[] a) {
         throw new UnsupportedOperationException();
     }
@@ -67,19 +64,66 @@ public class Oblig1 {
 
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
-    public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+    public static String flett(String s, String t){
+        StringBuilder sb = new StringBuilder();
+        int i = 0, j = 0, k = 0;                 // lokkevariabler
+
+        while (i < s.length() - 1 && j < t.length()) {
+            sb.append(s.charAt(i++));      // forst en verdi fra s
+            sb.append(t.charAt(j++));       // saa en verdi fra t
+        }
+        // vi maa ta med resten
+
+        if (i < s.length()) sb.append(s.substring(i));
+        if (j < t.length()) sb.append(t.substring(j));
+
+        return sb.toString();
     }
 
     /// 7b)
-    public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+    public static String flett(String... s){
+        StringBuilder sb2 = new StringBuilder();
+
+        boolean done = false;
+        int i = 0;
+        while (!done) {
+            done = true;
+
+            for (int j = 0; j < s.length; j++) {
+                if (s[j].length() > i) {
+                    sb2.append(s[j].charAt(i));
+
+                    done = false;
+                }
+            }
+            i++;
+
+        }
+        return sb2.toString();
     }
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new UnsupportedOperationException();
+
+        int[] index = new int[a.length];
+        int t;
+        int x;
+
+        for (int i = 0; i < a.length; i++) {
+            index[i] = i;
+        }
+
+
+        for (int i = 1; i < a.length; i++) {
+            for (t = index[i], x = i - 1; x >= 0 && a[t] < a[index[x]]; x--) {
+
+                index[x + 1] = index[x];
+            }
+            index[x + 1] = t;
+        }
+        return index;
     }
+
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
