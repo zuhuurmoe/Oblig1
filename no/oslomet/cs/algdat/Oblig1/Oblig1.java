@@ -30,14 +30,8 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        int n=a.length;
-
-        if(n<2){
-            throw new UnsupportedOperationException("Intervallet er ugyldig");
-        }
-
         int teller=0;
-        for(int i=0; i<n; ++i){
+        for(int i=0; i<a.length; ++i){
             boolean uniktTall=false;
 
             for(int j=0; j<i; j++){
@@ -56,30 +50,23 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        int n = a.length;
-
-        if(n<2){
-            throw new UnsupportedOperationException("Intervallet er ugyldig");
-        }
-
-        int ptall = n - 1;
-        int otall = 0;
+        int ptall = a.length - 1; int otall = 0;
 
         while (true) {
-            while (ptall >= 0 && a[ptall] % 2 == 0) {
+            while(ptall>=0 && a[ptall]%2==0) {
                 ptall--;
             }
-            while (otall < a.length && a[otall] % 2 != 0) {
+            while(otall<a.length && a[otall]%2!=0) {
                 otall++;
             }
-            if (otall < ptall) {
+            if(ptall>otall) {
                Oblig1Test.bytt(a, otall, ptall);
             } else {
                 break;
             }
         }
         Arrays.sort(a, 0, otall);
-        Arrays.sort(a, otall, n);
+        Arrays.sort(a, otall, a.length);
     }
 
     //Oppgave 5
@@ -137,24 +124,19 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-        if(a.equals(" ")|| b.equals(" ")||a.equals("")||b.equals("")){
-            throw new UnsupportedOperationException("Ikke gyldig String-input");
-        }
         int[] a1 = new int[256];
         int[] b1 = new int[256];
         int n = a1.length;
 
-        for (char c : a.toCharArray()){
+        for(char c : a.toCharArray()){
             a1[c]++;
         }
-        for (char c : b.toCharArray()){
+        for(char c : b.toCharArray()){
             b1[c]++;
         }
-        for (int i=0; i<n; i++){
-            if (a1[i]>0){
-                if (a1[i]<b1[i]) {
+        for(int i=0; i<n; i++){
+            if (a1[i]>0 && a1[i]>b1[i]){
                     return false;
-                }
             }
         }
         return true;
