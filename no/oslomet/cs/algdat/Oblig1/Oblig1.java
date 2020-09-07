@@ -14,28 +14,41 @@ public class Oblig1 {
         if (a.length < 1)
         throw new UnsupportedOperationException("Tabell mangler innhold");
 
-        int max = 0;
+        int maks_verdi = 0;
         for(int i = 1; i < a.length; i++ ){
 
             if(a[i] > a[i+1]){
-                max = a[i];
+                maks_verdi = a[i];
                 a[i] = a[i +1];
-                a[i + 1] = max;
+                a[i + 1] = maks_verdi;
 
             }
+        }
 
             return a[a.length];
 
-
-        }
     }
 
     public static int ombyttinger(int[] a) {
-        throw new UnsupportedOperationException();
+        int bytt = 0;
+        if (a.length <1)
+        throw new UnsupportedOperationException("Tabellen mangler innhold.");
+
+        for (int i = 0; i< a.length;) i++{
+            if (a[i + 1] < a[i]){
+                int maks_verdi = a[i];
+                a[i] = maks_verdi;
+                bytt++;
+            }
+        }
+        return bytt;
     }
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
+
+
+
         throw new UnsupportedOperationException();
     }
 
