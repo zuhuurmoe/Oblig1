@@ -15,7 +15,7 @@ public class Oblig1 {
         throw new UnsupportedOperationException("Tabell mangler innhold");
 
         int maks_verdi = 0;
-        for(int i = 1; i < a.length; i++ ){
+        for(int i = 1; i < a.length - 1; i++ ){
 
             if(a[i] > a[i+1]){
                 maks_verdi = a[i];
@@ -25,7 +25,7 @@ public class Oblig1 {
             }
         }
 
-            return a[a.length];
+        return a[a.length - 1];
 
     }
 
@@ -34,7 +34,7 @@ public class Oblig1 {
         if (a.length <1)
         throw new UnsupportedOperationException("Tabellen mangler innhold.");
 
-        for (int i = 0; i< a.length;) i++{
+        for (int i = 0; i< a.length - 1; i++){
             if (a[i + 1] < a[i]){
                 int maks_verdi = a[i];
                 a[i] = maks_verdi;
