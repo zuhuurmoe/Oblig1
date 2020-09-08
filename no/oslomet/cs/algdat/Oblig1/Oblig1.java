@@ -26,7 +26,6 @@ public class Oblig1 {
         }
 
         return a[a.length - 1];
-
     }
 
     public static int ombyttinger(int[] a) {
