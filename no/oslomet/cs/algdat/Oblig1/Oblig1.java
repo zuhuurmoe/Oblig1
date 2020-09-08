@@ -12,15 +12,16 @@ public class Oblig1 {
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) { //a er en heltallstabell
         if (a.length < 1)
-        throw new UnsupportedOperationException("Tabell mangler innhold");
+        throw new java.util.NoSuchElementException("Tabell mangler innhold");
 
-        int maks_verdi = 0;
-        for(int i = 1; i < a.length - 1; i++ ){
+        int maxVerdi = 0;
 
-            if(a[i] > a[i+1]){
-                maks_verdi = a[i];
+        for(int i = 0; i < a.length - 1; i++ ){
+
+            if(a[i] > a[i+1]) {
+                maxVerdi = a[i];
                 a[i] = a[i +1];
-                a[i + 1] = maks_verdi;
+                a[i + 1] = maxVerdi;
 
             }
         }
@@ -31,12 +32,13 @@ public class Oblig1 {
     public static int ombyttinger(int[] a) {
         int bytt = 0;
         if (a.length <1)
-            throw new UnsupportedOperationException("Tabellen mangler innhold.");
+            throw new NoSuchElementException("Tabellen mangler innhold.");
 
         for (int i = 0; i< a.length - 1; i++){
-            if (a[i + 1] < a[i]){
-                int maks_verdi = a[i];
-                a[i] = maks_verdi;
+            if (a[i + 1] < a[i]) {
+                int maxVerdi = a[i + 1];
+                a[i +1] = a[i];
+                a[i] = maxVerdi;
                 bytt++;
             }
         }
@@ -55,16 +57,16 @@ public class Oblig1 {
         for (int i = 1; i < a.length; i++){
             if (a[i-1] > a[i]){
 
-                throw new UnsupportedOperationException("Tallene er ikke sortert stigende!");
+                throw new IllegalStateException("Tallene er ikke sortert stigende!");
             }
             else{
                 if (a[i - 1] < a[i]){
                     antallUlike++;
                 }
             }
-            }
-        return antallUlike;
         }
+        return antallUlike;
+    }
 
 
     ///// Oppgave 3 //////////////////////////////////////
