@@ -1,14 +1,17 @@
 package no.oslomet.cs.algdat.Oblig1;
 
-////// Løsningsforslag Oblig 1 ////////////////////////
-
+// Løsningsforslag Oblig 1
+//Hifsah Khan,
+//Hava,s344182, S344182@oslomet.no
+//Cynthia Muljono, s309641, S309641@oslomet.no
+//Zuhuur Mohammed, s344095, S344095@oslomet.no
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
     private Oblig1() {}
 
-    ///// Oppgave 1 //////////////////////////////////////
+    // Oppgave 1
     public static int maks(int[] a) { //a er en heltallstabell
         if (a.length < 1)
         throw new java.util.NoSuchElementException("Tabell mangler innhold");
@@ -44,7 +47,7 @@ public class Oblig1 {
         return bytt;
     }
 
-    ///// Oppgave 2 //////////////////////////////////////
+    // Oppgave 2
     public static int antallUlikeSortert(int[] a) {
         if (a.length < 2)
         {
@@ -68,9 +71,10 @@ public class Oblig1 {
     }
 
 
-    ///// Oppgave 3 //////////////////////////////////////
+    // Oppgave 3
     public static int antallUlikeUsortert(int[] a) {
         int teller=0;
+
         for(int i=0; i<a.length; ++i){
             boolean uniktTall=false;
 
@@ -84,11 +88,11 @@ public class Oblig1 {
                 teller++;
             }
         }
-        System.out.println("Det er "+teller+" forskjellige verdier i tabellen");
+        // System.out.println("Det er "+teller+" forskjellige verdier i tabellen");
         return teller;
     }
 
-    ///// Oppgave 4 //////////////////////////////////////
+    // Oppgave 4
     public static void delsortering(int[] a) {
         int ptall = a.length - 1; int otall = 0;
 
@@ -137,8 +141,8 @@ public class Oblig1 {
         System.arraycopy(d,0, a, 0, k);
     }
 
-    ///// Oppgave 7 //////////////////////////////////////
-    /// 7a)
+    // Oppgave 7
+    // 7a)
     public static String flett(String s, String t){
         StringBuilder sb = new StringBuilder();
         int i = 0, j = 0, k = 0;                 // lokkevariabler
@@ -177,7 +181,7 @@ public class Oblig1 {
         return sb2.toString();
     }
 
-    ///// Oppgave 8 //////////////////////////////////////
+    // Oppgave 8
     public static int[] indekssortering(int[] a) {
 
         int[] index = new int[a.length];
@@ -200,7 +204,7 @@ public class Oblig1 {
     }
 
 
-    ///// Oppgave 9 //////////////////////////////////////
+    // Oppgave 9
     public static int[] tredjeMin(int[] a) {
         int n = a.length;
         //Kaster NoSuchElementException hvis det er mindre enn 3 elementer i arrayet
@@ -216,9 +220,9 @@ public class Oblig1 {
         int nestmin = indekssorter[1];
         int tredjemin = indekssorter[2];
 
-        int minVerdi = a[min];
-        int nestminVerdi = a[nestmin];
-        int tredjeminVerdi = a[tredjemin];
+        int minVerdi = a[min];                  //minste verdi
+        int nestminVerdi = a[nestmin];         //2.minste verdi
+        int tredjeminVerdi = a[tredjemin];    //3.minste verdi
 
         for (int i = 3; i < n; i++){
 
@@ -234,18 +238,18 @@ public class Oblig1 {
                         nestmin = min;
                         nestminVerdi = minVerdi;
 
-                        min = i;
+                        min = i;                               // ny 1.minst
                         minVerdi = a[i];
                     } else {
                         tredjemin = nestmin;
                         tredjeminVerdi = nestminVerdi;
 
-                        nestmin = i;
+                        nestmin = i;                           // ny 2.minst
                         nestminVerdi = a[i];
                 }
             }
                 else {
-                    tredjemin = i;
+                    tredjemin = i;                            // ny 3.minst
                     tredjeminVerdi = a[i];
                 }
             }
@@ -275,4 +279,4 @@ public class Oblig1 {
         return true;
     }
 
-}  // Oblig1
+}
